@@ -54,7 +54,7 @@ export async function getWeather(lat, lon) {
     const key = new Date((i.dt + tz) * 1000).toISOString().slice(0, 10)
     ;(groups[key] ||= []).push(i)
   })
-  const daily = Object.entries(groups).map(([key, items]) => ({
+  const daily = Object.entries(groups).slice(Object.keys(groups).length > 5 ? 1 : 0, 6).map(([key, items]) => ({
     day: new Date(key + 'T00:00:00Z').toLocaleDateString('en', { weekday: 'short', timeZone: 'UTC' }),
     min: Math.round(Math.min(...items.map((i) => i.main.temp_min))),
     max: Math.round(Math.max(...items.map((i) => i.main.temp_max))),
@@ -75,3 +75,5 @@ export async function getWeather(lat, lon) {
 
   return { current, hourly, daily, airQuality }
 }
+
+

@@ -2,6 +2,11 @@
 import SearchBar from './components/SearchBar'
 import CurrentWeather from './components/CurrentWeather'
 import StatTiles from './components/StatTiles'
+import Forecast from './components/Forecast'
+import TempChart from './components/TempChart'
+import AirQuality from './components/AirQuality'
+import SunCard from './components/SunCard'
+import RainChance from './components/RainChance'
 
 export default function App() {
   const { place, selectPlace, data, loading, error } = useWeather()
@@ -16,14 +21,14 @@ export default function App() {
       {data && (
         <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
           <CurrentWeather place={place} current={data.current} />
-          <section className="card md:col-span-3">5-Day Forecast (next)</section>
+          <Forecast daily={data.daily} />
 
           <StatTiles current={data.current} />
-          <section className="card md:col-span-3">Temperature Chart (next)</section>
+          <TempChart hourly={data.hourly} />
 
-          <section className="card md:col-span-2">Air Quality (next)</section>
-          <section className="card">Sunrise / Sunset (next)</section>
-          <section className="card">Chance of Rain (next)</section>
+          <AirQuality air={data.airQuality} />
+          <SunCard current={data.current} />
+          <RainChance daily={data.daily} />
         </div>
       )}
     </main>
