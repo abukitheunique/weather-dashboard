@@ -3,6 +3,7 @@
   '/data/2.5/forecast',
   '/data/2.5/air_pollution',
   '/geo/1.0/direct',
+  '/geo/1.0/reverse',
 ])
 
 export default async function handler(req, res) {
