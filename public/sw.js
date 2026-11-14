@@ -1,4 +1,4 @@
-﻿const CACHE = 'weather-v2'
+﻿const CACHE = 'weather-v3'
 const SHELL = ['/manifest.webmanifest', '/icon-192.png', '/icon-512.png']
 
 self.addEventListener('install', (e) => {
@@ -77,3 +77,4 @@ self.addEventListener('fetch', (e) => {
     )
   )
 })
+

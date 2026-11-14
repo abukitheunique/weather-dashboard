@@ -1,4 +1,5 @@
 ﻿import { t } from '../utils/units'
+import WeatherIcon from './WeatherIcon'
 
 export default function CurrentWeather({ place, current, unit }) {
   return (
@@ -9,11 +10,7 @@ export default function CurrentWeather({ place, current, unit }) {
         </span>
         <span className="opacity-80">Updated {current.updated}</span>
       </div>
-      <img
-        src={`https://openweathermap.org/img/wn/${current.icon}@2x.png`}
-        alt={current.description}
-        className="-ml-3 h-20 w-20"
-      />
+      <WeatherIcon code={current.icon} size={64} className="my-3" />
       <p className="text-5xl font-bold">
         {t(current.temp, unit)}°{unit}
       </p>
