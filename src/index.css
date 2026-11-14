@@ -8,10 +8,12 @@ body {
   font-family: system-ui, sans-serif;
 }
 
-.card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 1.25rem;
-  padding: 1rem;
-  backdrop-filter: blur(12px);
+@layer components {
+  .card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.25rem;
+    padding: 1rem;
+    backdrop-filter: blur(12px);
+  }
 }
