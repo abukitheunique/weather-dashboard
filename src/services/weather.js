@@ -77,3 +77,9 @@ export async function getWeather(lat, lon) {
 }
 
 
+
+export async function reverseGeocode(lat, lon) {
+  const list = await call('/geo/1.0/reverse', { lat, lon, limit: 1 })
+  const c = list[0]
+  return { name: c?.name || 'My location', country: c?.country || '', lat, lon }
+}

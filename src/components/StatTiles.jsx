@@ -1,12 +1,13 @@
 ﻿import { Droplets, Wind, Eye, Gauge, Thermometer, Cloud } from 'lucide-react'
+import { t, spd, dist } from '../utils/units'
 
-export default function StatTiles({ current }) {
+export default function StatTiles({ current, unit }) {
   const tiles = [
     { label: 'Humidity', value: `${current.humidity} %`, Icon: Droplets },
-    { label: 'Wind Speed', value: `${current.wind} km/h`, Icon: Wind },
-    { label: 'Visibility', value: `${current.visibility} km`, Icon: Eye },
+    { label: 'Wind Speed', value: spd(current.wind, unit), Icon: Wind },
+    { label: 'Visibility', value: dist(current.visibility, unit), Icon: Eye },
     { label: 'Pressure', value: `${current.pressure} hPa`, Icon: Gauge },
-    { label: 'Feels Like', value: `${current.feels}°C`, Icon: Thermometer },
+    { label: 'Feels Like', value: `${t(current.feels, unit)}°${unit}`, Icon: Thermometer },
     { label: 'Clouds', value: `${current.clouds} %`, Icon: Cloud },
   ]
   return (
