@@ -1,4 +1,5 @@
 ﻿import { t } from '../utils/units'
+import WeatherIcon from './WeatherIcon'
 
 export default function Forecast({ daily, unit }) {
   return (
@@ -8,11 +9,7 @@ export default function Forecast({ daily, unit }) {
         {daily.map((d, i) => (
           <div key={i} className="rounded-xl bg-white/5 p-3 text-center">
             <p className="text-sm opacity-70">{d.day}</p>
-            <img
-              src={`https://openweathermap.org/img/wn/${d.icon.replace('n', 'd')}.png`}
-              alt=""
-              className="mx-auto h-12 w-12"
-            />
+            <WeatherIcon code={d.icon.replace('n', 'd')} size={36} className="mx-auto my-2 text-orange-300" />
             <p className="text-sm font-semibold">{t(d.max, unit)}°</p>
             <p className="text-xs opacity-60">{t(d.min, unit)}°</p>
           </div>
